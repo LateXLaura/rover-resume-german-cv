@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in, a4paper]{geometry}
+\setcounter{secnumdepth}{0} % keine Nummerierung
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+% ==================== NATIVE SCHRIFTKOMBINATION ====================
+% 1. Libertine für Fließtext (Serif)
+\usepackage{libertine} 
+
+% 2. Source Sans für Überschriften
+\usepackage{sourcesanspro} 
+% Alternativer Font: 
+% \usepackage{cabin} -> % entfernen und % vor \usepackage{sourcesanspro} setzen
+
+% 3. Semi-Bold:
+\DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+% ===================================================================
+
+\usepackage{titlesec}
+
+% Überschriften mit nativer Semibold-Sans
+\titleformat{\section}
+  {\large\sffamily\sbseries\uppercase}{}{0pt}{}[\vspace{1.3pt}\titlerule]
+
+\titleformat{\subsection}
+  {\large\sffamily\sbseries}{}{0pt}{}
+
+\titleformat{\subsubsection}
+  {\normalsize\sffamily\sbseries\itshape}{}{0pt}{}
+
+% ==================== ABSTÄNDE (global) ====================
+% Abstand zwischen Absätzen/Zeilen (kein manuelles \vspace{} zwischen den Absätzen)
+\setlength{\parskip}{0.2em}
+
+% Abstände der Überschriften: {links}{vor Überschrift}{nach Überschrift}
+\titlespacing{\section}{0pt}{15pt}{10pt}
+\titlespacing{\subsection}{0pt}{6pt}{4pt}
+\titlespacing{\subsubsection}{0pt}{2pt}{2pt}
+% ===========================================================
+
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep,topsep=2pt,left=0pt .. \parindent}
+\pagestyle{empty}
+\pdfgentounicode=1
+
+\usepackage{tabularx} % für Tabellen mit automatischer Restbreite (X-Spalte)
+\usepackage[hidelinks, bookmarks=false,
+            pdftitle={Curriculum Vitae},
+            pdfauthor={Name von Arbeit-Suchen}]{hyperref}
+\usepackage{xurl}     % Links & E-Mails dürfen an jeder Stelle umbrechen
+
+\newcommand{\cvfont}{\Large\sffamily}
+
+\newlength{\capA}\newlength{\capB}
+\settoheight{\capA}{\cvfont H}
+\settoheight{\capB}{\normalsize\sffamily\sbseries H}
+
+\begin{document}
+
+\noindent
+
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{} p{6.8cm} >{\sffamily\sbseries}l >{\raggedright\arraybackslash}X @{}}
+	
+	\raisebox{\dimexpr\capB-\capA\relax}{\cvfont Curriculum Vitae}      & Geburtsdatum: & 10.11.1984 \\
+	
+	 & Geburtsort: & Recklinghausen \\
+	% Zeile 3
+	                                            \smash{\LARGE\sffamily\sbseries Name von Arbeit-Suchen}            & Telefon:      & 0800 66666 777 \\
+	% Zeile 4
+	                                                       & Email:        & email.a.dresse@mail.com \\
+	% Zeile 5
+	                                                       & Anschrift:    & Irgendeine Straße 77, 07777 Stadt
+\end{tabularx}
+
+\section{Ausbildung}
+%=================%
+\subsection{\href{https://www.beispiel-uni.de}{Irgendeine Universität Berlin} \hfill Okt 2002 -- Sept 2010} % die Dauer des Studiums
+M.Sc. Computational Science and Engineering
+\hfill Note 2.7 %Abschlussnote
+
+Masterarbeit \flqq \textit{What is \flq Scientific Computing\frq : Its essence and non-essence}\frqq
+\hfill Note 1.7
+
+\subsection{\href{https://www.beispiel-uni.de}{Tolle Universität Köln} \hfill Okt 2000 -- Sept 2002}
+B.Sc. Mathematik
+\hfill Note 3.0
+
+Bachelorarbeit \flqq \textit{Was ist 2+2 und wie wird es bewiesen.}\frqq
+\hfill Note 2.7
+
+Auslandssemester im Ausland: \textit{Ausländische Universität}\hfill Sept 2001 -- Feb 2002
+
+\subsection{Schule Recklinghausen \hfill 2002}
+Allgemeine Hochschulreife \hfill Note 3.5 %diese Note kann weggelassen werden
+
+\section{Erfahrung}
+%=================%
+\subsection{\href{https://www.firma.de}{Große Firma} \hfill Stadt}
+\subsubsection{Position (60 H. pro Woche) \hfill Sept 2016 -- Dez 2021}
+\begin{itemize}
+	\item die wichtigste und bedeutendste Sache nennen, die man dort gemacht hat \\
+	(\textbf{Cool}, Programm, Sache)
+	\item eine andere Sache nennen, die fast genauso bedeutend war
+	\item Bereitstellung einer Sache, Lösung eines Problems, Anwendung,\\ Erweiterung etc. Applikation
+\end{itemize}
+
+\subsubsection{Position \hfill Jan 2011 -- Aug 2016}
+\begin{itemize}
+    \item Entwicklung eines Schokoriegels
+    \item Betreuung von Praktikanten
+\end{itemize}
+
+\subsection{Lehrstuhl für Prokrastination \hfill Irgendeine Universität Berlin}
+\subsubsection{Studentische Hilfskraft (10 H. pro Woche) \hfill Jan 2007 -- Aug 2010}
+\begin{itemize}
+	\item Bücher einscannen, Listen abtippen, Kaffee kochen
+	\item Kopieren, Recherchieren, unbezahlte Überstunden machen
+\end{itemize}
+
+\section{Fähigkeiten}
+%===========================%
+\begin{description}[itemsep=1pt, font=\normalfont\sffamily\sbseries]
+	\item[Software] \LaTeX, GitHub, MS Office
+	\item[Programmiersprachen] Python, Java
+	\item[Sprachen] Deutsch (Muttersprache), Englisch (C1), Türkisch (B2)
+\end{description}
+
+\end{document}

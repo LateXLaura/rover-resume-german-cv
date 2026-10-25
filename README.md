@@ -4,11 +4,15 @@ Deutsche Anpassung der LaTeX-Lebenslaufvorlage [Rover Resume](https://github.com
 
 ## Vorschau
 
-![Vorschau des CV‘s](images/screenshot-cv.png)
+<p align="center">
+  <kbd>
+    <img src="screenshot-cv.png" width="600" alt="Vorschau des CV's">
+  </kbd>
+</p>
 
 ## Änderungen gegenüber dem Original
 
-# Kopfbereich: bündige Ausrichtung
+### Kopfbereich: bündige Ausrichtung
 
 Im Original stehen Name und Titel links und die Kontaktdaten rechts in zwei getrennten `minipage`-Blöcken. Das ist klar, kompakt und einfach, aber die beiden Blöcke haben keine gemeinsame Linie, sie sind nur zueinander zentriert.
 
@@ -27,7 +31,7 @@ Name von Arbeit-Suchen    Telefon:        0800 66666 777    <- gleiche Grundlini
 
 Die Schriftgrößen sind ungleich, die Linien sind gleich. Das gleicht aus, was am Original fehlt, ohne dessen Einfachheit aufzugeben.
 
-## Code
+### Code
 
 ```latex
 \renewcommand{\arraystretch}{1.18}
@@ -41,13 +45,13 @@ Die Schriftgrößen sind ungleich, die Linien sind gleich. Das gleicht aus, was 
 \end{tabularx}
 ```
 
-## Grundlinie: Name und Telefon
+### Grundlinie: Name und Telefon
 
 In einer Tabellenzeile sitzen alle Zellen standardmäßig auf einer gemeinsamen Grundlinie. Für Name und Telefon ist das genau gewünscht, es muss also nichts verschoben werden. Das Problem ist die Zeilenhöhe: Der große Name würde die dritte Zeile höher machen als die anderen, und der gleichmäßige Zeilenabstand wäre weg.
 
 `\smash{...}` setzt Höhe und Tiefe des Namens auf null. Die Tabelle rechnet dann mit normaler Zeilenhöhe, der Name ragt nach oben in die leere Zelle der Zeile darüber. Seine Grundlinie bleibt dabei unverändert und liegt auf der von "Telefon:".
 
-## Oberkante: Titel und Geburtsdatum
+### Oberkante: Titel und Geburtsdatum
 
 Hier ist die Standardausrichtung das Problem: Läge die Grundlinie von "Curriculum Vitae" auf der von "Geburtsdatum:", würde der größere Titel oben herausragen. Die Oberkanten sollen aber bündig sein, also muss der Titel nach unten.
 
@@ -64,7 +68,7 @@ Hier ist die Standardausrichtung das Problem: Läge die Grundlinie von "Curricul
 
 Weil die Höhen gemessen werden, funktioniert die Ausrichtung auch, wenn Schriftart oder Größe geändert werden. Es muss kein Wert von Hand nachjustiert werden.
 
-## Spalten
+### Spalten
 
 ```latex
 {@{} p{6.8cm} >{\sffamily\sbseries}l >{\raggedright\arraybackslash}X @{}}
@@ -76,13 +80,13 @@ Weil die Höhen gemessen werden, funktioniert die Ausrichtung auch, wenn Schrift
 - **`>{\raggedright\arraybackslash}X`:** nimmt die restliche Breite. `\raggedright` verhindert Blocksatz und große Wortabstände. `\arraybackslash` stellt die Bedeutung von `\\` als Zeilenende der Tabelle wieder her, sonst gibt es Fehlermeldungen.
 - **`\arraystretch` 1.18:** vergrößert die Zeilenhöhe um 18 %.
 
-## Anpassen
+### Anpassen
 
 - **Zeile hinzufügen:** `& Bezeichnung: & Wert \\` einfügen, die erste Zelle bleibt leer.
 - **Linken Block verbreitern:** Wert in `p{6.8cm}` ändern. Ein sehr langer Name läuft wegen `\smash` nicht um, sondern über die Spaltenbreite hinaus. Dann `\LARGE` zu `\Large` ändern oder die Spalte verbreitern.
 - **Zeilenabstand:** `1.18` in `\arraystretch` ändern.
 
-## Hyperlinks
+### Hyperlinks
 
 Das Original verzichtet bewusst auf `hyperref`. Hier ist es eingebunden, damit Namen von Universitäten und Arbeitgebern direkt auf deren Webseiten verlinken (`\href`). Mit `hidelinks` bleiben die Links klickbar, werden aber ohne farbige Rahmen oder Schrift dargestellt, das Druckbild bleibt unverändert. `xurl` erlaubt Umbrüche an beliebiger Stelle in Links und E-Mail-Adressen, sodass nichts über den Rand läuft. Außerdem sind Titel und Autor in den PDF-Metadaten gesetzt.
 
@@ -95,15 +99,15 @@ Das Original nutzt die LaTeX-Standardschrift (Computer Modern). Hier werden zwei
 
 Die Mischung aus Serif und Sans Serif schafft Orientierung: Überschriften und Bezeichnungen heben sich vom Text ab, ohne dass das Layout altbacken wirkt. Als Alternative zu Source Sans ist `cabin` vorbereitet.
 
-## Überschriften und Abstände
+### Überschriften und Abstände
 
 Überschriften sind in Semibold-Sans gesetzt, Abschnitte in Großbuchstaben mit Trennlinie. Die Abstände werden nicht mehr auf null gesetzt (`*0`), sondern für jede Ebene explizit festgelegt, damit der Text nicht gedrängt wirkt.
 
-## Deutsche Sprache
+### Deutsche Sprache
 
 `babel` mit `ngerman` sorgt für deutsche Silbentrennung und Bezeichnungen, `fontenc` (T1) und `inputenc` (utf8) für Umlaute und ß.
 
-## Präambel
+### Präambel
 
 Schriften:
 

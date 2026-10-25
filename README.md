@@ -1,12 +1,14 @@
 # Rover Resume (deutsch)
 
-Deutsche Anpassung der LaTeX-Lebenslaufvorlage [Rover Resume](https://github.com/subidit/rover-resume) von subidit.
+# Rover Resume (deutsch)
+
+Deutsche Anpassung der Vorlage **Base Rover** aus [Rover Resume](https://github.com/subidit/rover-resume) von subidit.
 
 ## Vorschau
 
 <p align="center">
   <kbd>
-    <img src="screenshot-cv.png" width="600" alt="Vorschau des CV's">
+    <img src="screenshot-cv.png" width="300" alt="Vorschau des CV's">
   </kbd>
 </p>
 
@@ -167,4 +169,4 @@ Kopfbereich:
 
 ## Quelle und Lizenz
 
-Basiert auf [Rover Resume](https://github.com/subidit/rover-resume) von subidit. Lizenz siehe [LICENSE](LICENSE).
+asiert auf der Vorlage **Base Rover** aus [Rover Resume](https://github.com/subidit/rover-resume) von subidit. Lizenz siehe [LICENSE](LICENSE).

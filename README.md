@@ -1,7 +1,5 @@
 # Rover Resume (deutsch)
 
-# Rover Resume (deutsch)
-
 Deutsche Anpassung der Vorlage **Base Rover** aus [Rover Resume](https://github.com/subidit/rover-resume) von subidit.
 
 ## Vorschau
@@ -82,11 +80,11 @@ Weil die Höhen gemessen werden, funktioniert die Ausrichtung auch, wenn Schrift
 - **`>{\raggedright\arraybackslash}X`:** nimmt die restliche Breite. `\raggedright` verhindert Blocksatz und große Wortabstände. `\arraybackslash` stellt die Bedeutung von `\\` als Zeilenende der Tabelle wieder her, sonst gibt es Fehlermeldungen.
 - **`\arraystretch` 1.18:** vergrößert die Zeilenhöhe um 18 %.
 
-### Anpassen
+### Anpassungen nicht notwendig
 
-- **Zeile hinzufügen:** `& Bezeichnung: & Wert \\` einfügen, die erste Zelle bleibt leer.
-- **Linken Block verbreitern:** Wert in `p{6.8cm}` ändern. Ein sehr langer Name läuft wegen `\smash` nicht um, sondern über die Spaltenbreite hinaus. Dann `\LARGE` zu `\Large` ändern oder die Spalte verbreitern.
-- **Zeilenabstand:** `1.18` in `\arraystretch` ändern.
+- **`>{\raggedright\arraybackslash}X` (erste Spalte):** nimmt die restliche Breite. Titel und Name stehen hier, und die Spalte passt sich automatisch an, wenn der rechte Block länger oder kürzer wird.
+- **`>{\sffamily\sbseries}l` (zweite Spalte):** schmal, linksbündig, für die Bezeichnungen. `>{...}` setzt vor jeden Eintrag Sans-Serif und Semibold.
+- **`l` (dritte Spalte):** Breite nach dem längsten Eintrag. Weil die Tabelle mit `@{}` abschließt, endet dieser Eintrag genau am rechten Rand.
 
 ### Hyperlinks
 
@@ -169,4 +167,4 @@ Kopfbereich:
 
 ## Quelle und Lizenz
 
-basiert auf der Vorlage **Base Rover** aus [Rover Resume](https://github.com/subidit/rover-resume) von subidit. Lizenz siehe [LICENSE](LICENSE).
+basiert auf der Vorlage **Base Rover** aus der Vorlage **Base Rover** aus [Rover Resume](https://github.com/subidit/rover-resume) von subidit. Lizenz siehe [LICENSE](LICENSE).

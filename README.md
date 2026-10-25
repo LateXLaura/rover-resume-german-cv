@@ -169,4 +169,4 @@ Kopfbereich:
 
 ## Quelle und Lizenz
 
-asiert auf der Vorlage **Base Rover** aus [Rover Resume](https://github.com/subidit/rover-resume) von subidit. Lizenz siehe [LICENSE](LICENSE).
+basiert auf der Vorlage **Base Rover** aus [Rover Resume](https://github.com/subidit/rover-resume) von subidit. Lizenz siehe [LICENSE](LICENSE).
